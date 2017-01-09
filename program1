@@ -1,0 +1,72 @@
+puts "Enter first number"
+number_1 = gets.chomp   #get first number
+puts "Enter second number"
+number_2 = gets.chomp   #get second number
+difference = number_1.to_i - number_2.to_i #find difference
+if difference<0
+  difference=-difference
+end
+print "difference "
+puts difference
+
+year = difference.to_i/31536000       #find amount of years
+if year >= 1
+  print year
+if year > 1                      #check the end of word
+     print " years "
+else print " year "
+end
+  day = (difference.to_i%(year.to_i*31536000))/86400    #find amount of days
+else
+  day = difference.to_i/86400
+end
+
+if day >= 1
+  print day
+if day > 1   #check the end of word
+  print  " days "
+else print  " day "
+end
+end
+if difference >= 86400  #find amount of hours
+ hour = (difference.to_i%(year.to_i*31536000 + day.to_i*86400)) / 3600
+else hour = difference.to_i / 3600
+  end
+
+if hour >= 1
+  print hour
+if hour > 1          #check the end of word
+    print " hours "
+else print " hour "
+end
+end
+if difference>=3600
+minute = (difference.to_i%(year.to_i*31536000 + day.to_i*86400+ hour.to_i*3600)) / 60
+ else minute = (difference.to_i) / 60
+end
+
+if minute >= 1
+    print minute
+    if minute > 1      #check the end of word
+      print " minutes"
+    else print " minute"
+    end
+end
+if difference>=60         #find amount of seconds
+  print " and "
+    second = (difference.to_i%(year.to_i*31536000 + day.to_i*86400 + hour.to_i*3600 + minute*60))
+else
+    second = difference.to_i
+end
+
+if second >= 1
+  print second
+  if second >1   #check the end of word
+    print " seconds"
+  else print " second"
+  end
+end
+
+
+
+

@@ -1,0 +1,39 @@
+require 'date'
+require 'time'
+puts "Enter date and time"    #get DateTime
+time1 = gets.chomp
+time2 = DateTime.parse time1
+b = time2.to_time.to_i-7200 #convert DateTime to seconds
+
+arr = Array.new                   #create new array
+arr[0]=Time.at b                 #add first element to array
+puts arr[0].strftime("%a, %d %b %Y %H:%M:%S")
+
+i=0
+
+while  arr[i].hour < 1         #add new elements to array and print them in DateTime format according to amount of hour
+  i+=1
+arr[i] = Time.at(b+i*900)
+  puts arr[i].strftime("%a, %d %b %Y %H:%M:%S")
+end
+
+while arr[i].hour <5 && arr[i].hour >= 1
+  i+=1
+  arr[i] = Time.at(arr[i-1]+1800)
+  puts arr[i].strftime("%a, %d %b %Y %H:%M:%S")
+end
+
+while arr[i].hour >=5 && arr[i].hour <12
+  i+=1
+  arr[i] = Time.at(arr[i-1]+3600)
+  puts arr[i].strftime("%a, %d %b %Y %H:%M:%S")
+end
+j=0
+while  arr[i].hour >= 12 && j<5
+  i+=1
+  j+=1
+  arr[i] = Time.at(arr[i-1]+86400)
+  puts arr[i].strftime("%a, %d %b %Y %H:%M:%S")
+end
+
+
