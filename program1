@@ -8,6 +8,7 @@ if difference<0
 end
 print "difference "
 puts difference
+#difference = difference/1000  #if input values represented in milliseconds
 
 year = difference.to_i/31536000       #find amount of years
 if year >= 1
@@ -53,13 +54,13 @@ if minute >= 1
     end
 end
 if difference>=60         #find amount of seconds
-  print " and "
     second = (difference.to_i%(year.to_i*31536000 + day.to_i*86400 + hour.to_i*3600 + minute*60))
 else
     second = difference.to_i
 end
 
 if second >= 1
+  print " and "
   print second
   if second >1   #check the end of word
     print " seconds"
@@ -67,6 +68,26 @@ if second >= 1
   end
 end
 
-
+'Examples of input and output
+Input:
+1)1478779621
+2)1478687791
+Output:1 day 1 hour 30 minutes and 30 seconds
+______________________________________________________________
+Input:
+1)1243546457
+2)12434657
+Output:39 years 13 days 23 hours 30 minutes
+______________________________________________________________
+Input:
+1)28
+2)1657
+Output:27 minutes and 9 seconds
+_______________________________________________________________
+Input:
+1)-7475868
+2)645
+Output:86 days 12 hours 48 minutes and 33 seconds
+'
 
 
